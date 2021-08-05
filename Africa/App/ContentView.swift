@@ -9,8 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Content")
-            .padding()
+        NavigationView{
+            List{
+                CoverImageView()
+                    .frame( height: 300, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    .listRowInsets(
+                        EdgeInsets(
+                            top: 0, leading: 0, bottom: 0, trailing: 0
+                        )
+                    )
+            }
+            .navigationBarTitle("Africa",displayMode: .large)
+        }
     }
 }
 
