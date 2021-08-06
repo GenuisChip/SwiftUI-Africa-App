@@ -17,7 +17,7 @@ struct VideoListView: View {
             List{
                 ForEach(videos.shuffled()){ item in
                     NavigationLink(
-                        destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                        destination: VideoPlayerView(video: item),
                         label: {
                             VideoListItemView(video: item)
                                 
