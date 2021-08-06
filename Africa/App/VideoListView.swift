@@ -8,8 +8,35 @@
 import SwiftUI
 
 struct VideoListView: View {
+    @State() var videos: [Video] = Bundle.main.decode("videos.json")
+    //Haptic Feedback
+    let hapticImpact = UIImpactFeedbackGenerator(style:.medium)
+    
     var body: some View {
-        Text("Video")
+        NavigationView {
+            List{
+                ForEach(videos.shuffled()){ item in
+                    NavigationLink(
+                        destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                        label: {
+                            VideoListItemView(video: item)
+                                
+                        }).padding(.vertical, 8)
+                }
+            }
+            .navigationBarTitle("Videos")
+            .navigationBarItems(
+                trailing:
+                    Button(
+                        action: {
+                            videos.shuffle()
+                            hapticImpact.impactOccurred()
+                        },
+                        label: {
+                            Image(systemName: "arrow.2.squarepath")
+                        }
+                    ))
+        }
     }
 }
 
