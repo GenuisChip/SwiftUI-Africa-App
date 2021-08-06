@@ -31,14 +31,10 @@ struct AnimalDetailView: View {
                     .font(.headline)
                     .foregroundColor(.accentColor)
                 
-                HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 8, content: {
-                    Image(systemName: "photo.on.rectangle.angled")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
-                    Text("Wilderness in Picture")
-                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                        .font(.title2)
-                })
+                SubTitleWithIcon(
+                    image: "photo.on.rectangle.angled",
+                    title: "Wilderness in Picture"
+                )
                 
                 ScrollView(.horizontal, showsIndicators: false, content: {
                     HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 13, content: {
@@ -50,8 +46,51 @@ struct AnimalDetailView: View {
                                 .cornerRadius(8)
                         }
                     })
-                    
                 })
+                
+                
+                Group{
+                    SubTitleWithIcon(
+                    image: "questionmark.circle",
+                    title: "Did you Know"
+                    )
+                    GroupBox{
+                        TabView{
+                            ForEach(animal.fact, id:\.self){ item in
+                                Text(item)
+                            }
+                        }.tabViewStyle(PageTabViewStyle())
+                        .frame(minHeight: 140, idealHeight: 150, maxHeight: 160, alignment: .center)
+                    }
+                }
+                
+                    
+                Group{
+                    SubTitleWithIcon(
+                        image: "info.circle",
+                        title: "All about \(animal.name)"
+                    )
+                    Text(animal.description)
+                        .multilineTextAlignment(.leading)
+                    
+                }.padding()
+              
+                SubTitleWithIcon(
+                    image: "map",
+                    title: "National Parks"
+                )
+                
+                InsetMapView()
+                
+                Group{
+                    SubTitleWithIcon(
+                        image: "book",
+                        title: "Learn More"
+                    )
+                    ExternalLinkWebView(animal: animal)
+                }.padding(.horizontal)
+                
+                
             })
             
         })
@@ -66,5 +105,20 @@ struct AnimalDetailView_Previews: PreviewProvider {
         NavigationView {
             AnimalDetailView(animal: animals[2])
         }.previewDevice("iPhone 11 Pro")
+    }
+}
+
+struct SubTitleWithIcon: View {
+    let image: String
+    let title: String
+    var body: some View {
+        HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 8, content: {
+            Image(systemName: image)
+                .imageScale(.large)
+                .foregroundColor(.accentColor)
+            Text(title)
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                .font(.title2)
+        })
     }
 }
