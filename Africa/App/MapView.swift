@@ -33,7 +33,14 @@ struct MapView: View {
                 
                 // Custom Pin annotation (animated)
                 MapAnnotation(coordinate: item.location){
+                   
                     MapAnnotationView(location: item)
+                        .onTapGesture {
+                            region.center = CLLocationCoordinate2D(latitude: item.latitude, longitude: item.longitude)
+                            region.span = MKCoordinateSpan(latitudeDelta: 20, longitudeDelta: 20)
+                            
+                        }
+                   
                 }
             }
         )
