@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var isGridLayout: Bool = false
     @State var gridLayout: [GridItem] = [GridItem()]
     @State var gridIcon : String = "square.grid.2x2"
-
+    var haptics = UIImpactFeedbackGenerator()
     
     
     
@@ -84,12 +84,14 @@ struct ContentView: View {
                             .foregroundColor(!isGridLayout ? .accentColor : .primary)
                             .onTapGesture {
                                 isGridLayout = false
+                                haptics.impactOccurred()
                             }
                         
                         Image(systemName: gridIcon)
                             .font(.title2)
                             .foregroundColor(isGridLayout ? .accentColor : .primary)
                             .onTapGesture {
+                                haptics.impactOccurred()
                                 isGridLayout = true
                                 changeGridColumnLayout()
                             }
