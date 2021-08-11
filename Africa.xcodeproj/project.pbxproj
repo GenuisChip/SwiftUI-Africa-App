@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,7 +27,7 @@
 		412E8DFC26BDF9D800CE44C3 /* MapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412E8DFB26BDF9D800CE44C3 /* MapAnnotationView.swift */; };
 		4142032A26BF27320054E1C4 /* MotionAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4142032926BF27320054E1C4 /* MotionAnimationView.swift */; };
 		4142033026C3D95C0054E1C4 /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4142032F26C3D95C0054E1C4 /* Stickers.xcassets */; };
-		4142033426C3D95D0054E1C4 /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4142032D26C3D95A0054E1C4 /* Stickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4142033426C3D95D0054E1C4 /* Stickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 4142032D26C3D95A0054E1C4 /* Stickers.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		41DD000526BC12E2008E5BCC /* animals.json in Resources */ = {isa = PBXBuildFile; fileRef = 41DD000126BC12E2008E5BCC /* animals.json */; };
 		41DD000626BC12E2008E5BCC /* covers.json in Resources */ = {isa = PBXBuildFile; fileRef = 41DD000226BC12E2008E5BCC /* covers.json */; };
 		41DD000726BC12E2008E5BCC /* videos.json in Resources */ = {isa = PBXBuildFile; fileRef = 41DD000326BC12E2008E5BCC /* videos.json */; };
@@ -85,6 +85,7 @@
 		4142032D26C3D95A0054E1C4 /* Stickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Stickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4142032F26C3D95C0054E1C4 /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		4142033126C3D95C0054E1C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4142033926C3DE000054E1C4 /* Africa.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Africa.entitlements; sourceTree = "<group>"; };
 		41DD000126BC12E2008E5BCC /* animals.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animals.json; sourceTree = "<group>"; };
 		41DD000226BC12E2008E5BCC /* covers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = covers.json; sourceTree = "<group>"; };
 		41DD000326BC12E2008E5BCC /* videos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = videos.json; sourceTree = "<group>"; };
@@ -225,6 +226,7 @@
 		41DDFFE526BC0DBE008E5BCC /* Africa */ = {
 			isa = PBXGroup;
 			children = (
+				4142033926C3DE000054E1C4 /* Africa.entitlements */,
 				412E8DE226BDB34600CE44C3 /* Helper */,
 				41DD001826BC19F1008E5BCC /* Extension */,
 				41DD001526BC1946008E5BCC /* Model */,
@@ -405,6 +407,7 @@
 /* Begin PBXTargetDependency section */
 		4142033326C3D95D0054E1C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 4142032C26C3D95A0054E1C4 /* Stickers */;
 			targetProxy = 4142033226C3D95D0054E1C4 /* PBXContainerItemProxy */;
 		};
@@ -422,6 +425,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.genius.Africa.Stickers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -437,6 +441,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.genius.Africa.Stickers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -562,6 +567,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Africa/Africa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Africa/Preview Content\"";
 				DEVELOPMENT_TEAM = AZHAQ4522D;
@@ -574,6 +580,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.genius.Africa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -584,6 +591,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Africa/Africa.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Africa/Preview Content\"";
 				DEVELOPMENT_TEAM = AZHAQ4522D;
@@ -596,6 +604,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.genius.Africa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
